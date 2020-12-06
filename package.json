@@ -1,0 +1,22 @@
+{
+  "name": "handpose_tp_sffs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-bbn/handpose_TP_SFFS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r-bbn/handpose_TP_SFFS/issues"
+  },
+  "homepage": "https://github.com/r-bbn/handpose_TP_SFFS#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
