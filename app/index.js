@@ -133,7 +133,7 @@ function detectClosedHand(predictions) {
 
     // (Question 2.2)
 
-    // Get fingers (print prediction object to see other fingers)
+    // Get fingers (not thumb and palmBase, see prediction object in console)
     // let indexFinger = predictions[0].annotations.indexFinger;
 
     // Detect the number of closed fingers
@@ -146,34 +146,26 @@ function detectClosedHand(predictions) {
 /**
  * Detect if a finger is closed
  * @param finger
+ *  * The structure of a finger is the following :
+ * finger {
+ *     [
+ *         [x0, y0, z0] (1st point coordinates = Bottom)
+ *         [x1, y1, z1] (2nd point)
+ *         [x2, y2, z2] (3rd point)
+ *         [x3, y3, z3] (4th point = Top)
+ *     ]
+ * }
  * @returns 1 if closed, 0 otherwise
  */
 function detectClosedFinger(finger) {
 
     // (Question 2.1)
 
-    // Get yTop & yBottom (Point index : (0, Bottom), (3, Top))
-    // Structure of a point is the following : [x, y, z]
+    // Get yTop & yBottom
 
-    // Return 1 if top height > bottom height, 0 otherwise
-
+    // Return 1 if finger closed, 0 otherwise
+    // Warning ! See how the "y" axis is defined !
     return 1;
-}
-
-/**
- * Draw the extreme coordinates of a finger (top & bottom)
- * @param finger
- */
-function drawExtremeFingerPoint(finger) {
-    let x = finger[3][0]
-    let y = finger[3][1]
-
-    drawPoint(y-2, x-2, 3)
-
-    x = finger[1][0]
-    y = finger[1][1]
-
-    drawPoint(y-2, x-2, 3)
 }
 
 /**
@@ -198,7 +190,7 @@ const landmarksRealTime = async (video, audio) => {
             // https://github.com/tensorflow/tfjs-models/tree/master/handpose
 
             // You can log it to see further details
-            console.log(predictions)
+            console.log("Predictions", predictions);
 
             // (Question 1.5)
 

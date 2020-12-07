@@ -47,6 +47,13 @@ Ensuite, notre application est très simple. Elle utilise un **canvas** dans leq
 
 Voici quelques morceaux de code à retenir afin d'utiliser l'application
 Il faut compléter les blancs dans le squelette afin de faire fonctionner l'application finale !
+Chaque blanc à compléter est situé dans le programme avec le numéro de la question : 
+```js
+// (Question 1.1)
+```
+
+Si vous utilisez http-server, enregistrez le fichier modifié et rechargez la page, les modifications seront effectuées.
+Si vous utilisez Docker, stoppez le container, créez une nouvelle image et lancez la dans un nouveau container (voir les scripts déjà écrits pour vous aider)
 
 #### Fonction *main*
 
@@ -127,4 +134,5 @@ On considère un doigt fermé lorsque la hauteur du keypoint en son sommet est p
 Compléter la méthode *detectClosedHand*
 
 ## Fin du TP
+Décommente les lignes concernant le lancement du fichier audio !
 Bravo, tu est un véritable chef d'orchestre !
