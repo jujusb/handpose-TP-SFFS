@@ -1,6 +1,7 @@
 # Handpose Application
 
 See TP instructions in the _./TP_Instructions_ folder
+Or [here](https://github.com/r-bbn/handpose_TP_SFFS/blob/master/TP_Instructions/TP.MD)
 
 The purpose of this project is to control music thanks to hand gestures. Close hand : Music stops
 Open hand : Music starts
@@ -26,6 +27,8 @@ npx http-server
 
 The server is running on : http://localhost:8080
 
+Be aware of disabling cache in Chrome : Dev tools/Network/Disable Cache
+
 ### Using docker
 
 #### Build image & launch app :
@@ -35,6 +38,8 @@ cd docker
 ```
 
 The server is running on : http://localhost:8080
+
+Be aware of disabling cache in Chrome : Dev tools/Network/Disable Cache
 
 #### Remove container and image
 ```bash

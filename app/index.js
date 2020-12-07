@@ -131,16 +131,22 @@ function drawPath(points, closePath) {
  */
 function detectClosedHand(predictions) {
 
-    // (Question 2.2)
-
     // Get fingers (not thumb and palmBase, see prediction object in console)
-    // let indexFinger = predictions[0].annotations.indexFinger;
+
+    let nbClosed = 0;
+
+    let keys = Object.keys(predictions[0].annotations);
+    keys.forEach(key => {
+        if(key != "thumb" && key != "palmBase") {
+            nbClosed += detectClosedFinger(predictions[0].annotations[key]);
+        }
+    })
 
     // Detect the number of closed fingers
 
     // If it is >= 2, the hand is considered closed
 
-    return true;
+    return nbClosed >= 2;
 }
 
 /**
@@ -159,13 +165,17 @@ function detectClosedHand(predictions) {
  */
 function detectClosedFinger(finger) {
 
-    // (Question 2.1)
-
     // Get yTop & yBottom
+    let yTop = finger[3][1]
+    let yDown = finger[0][1]
 
     // Return 1 if finger closed, 0 otherwise
     // Warning ! See how the "y" axis is defined !
-    return 1;
+    if(yTop > yDown) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 /**
@@ -181,7 +191,7 @@ const landmarksRealTime = async (video, audio) => {
             video, 0, 0, videoWidth, videoHeight, 0, 0, canvas.width,
             canvas.height);
 
-        // (Question 1.4)
+        const predictions = await model.estimateHands(video);
 
         // If there is a result, forward to analysis
         if (predictions.length > 0) {
@@ -192,20 +202,21 @@ const landmarksRealTime = async (video, audio) => {
             // You can log it to see further details
             console.log("Predictions", predictions);
 
-            // (Question 1.5)
+            const result = predictions[0].landmarks;
+            drawKeypoints(result);
 
             // Detect if the hand is closed, and play audio
             if(detectClosedHand(predictions)) {
-                // audio.pause();
+                audio.pause();
                 console.log('Close');
             } else {
-                // audio.play();
+                audio.play();
                 console.log('Open');
             }
         }
         // Otherwise if no hands are detected
         else {
-            // audio.pause();
+            audio.pause();
             console.log('No hand');
         }
         // Launch new analysis for the next frame
@@ -220,14 +231,13 @@ const landmarksRealTime = async (video, audio) => {
  * Main Function
  */
 async function main() {
-    // (Question 1.1)
+    await tf.setBackend(state.backend);
+    model = await handpose.load();
 
     // Load the webcam video stream
     let video;
     try {
-        // (Question 1.2)
-
-
+        video = await loadVideo();
     } catch (e) {
         // If error, display message
         let info = document.getElementById('info');
@@ -259,7 +269,7 @@ async function main() {
     let audio = new Audio('./resources/music.mp3');
     audio.loop = true;
 
-    // (Question 1.3)
+    landmarksRealTime(video, audio);
 }
 
 navigator.getUserMedia = navigator.getUserMedia ||

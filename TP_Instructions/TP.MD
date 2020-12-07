@@ -28,7 +28,7 @@ Notre application est composée de 2 fichiers distincts :
 
 Nous introduisons d'abord les **dépendances** du projet (tensorflow et le modèle Handpose ainsi que WebGL utilisé par Tensorflow en tant que backend pour représenter ses tenseurs)
 
-Ensuite, notre application est très simple. Elle utilise un **canvas** dans lequel est inséré un **objet vidéo** qui diffuse le contenu de la webcam. Cela va nous être utile pour dessiner les points clés détectés par le modèle (doigts et paume) et les superposer aux flux vidéo.
+Ensuite, notre application est très simple. Elle utilise un **canvas** dans lequel est inséré un **objet vidéo** qui diffuse le contenu de la webcam. Cela va nous être utile pour dessiner les points clés détectés par le modèle (doigts et paume) et les superposer au flux vidéo.
 
 ```html
 <body>  
@@ -53,7 +53,7 @@ Chaque blanc à compléter est situé dans le programme avec le numéro de la qu
 ```
 
 Si vous utilisez http-server, enregistrez le fichier modifié et rechargez la page, les modifications seront effectuées.
-Si vous utilisez Docker, stoppez le container, créez une nouvelle image et lancez la dans un nouveau container (voir les scripts déjà écrits pour vous aider)
+Si vous utilisez Docker, stoppez le container, créez une nouvelle image et lancez la dans un nouveau container (voir les scripts déjà écrits dans le dossier **docker** pour vous aider)
 
 #### Fonction *main*
 
@@ -91,7 +91,7 @@ const result = predictions[0].landmarks;
 drawKeypoints(result);
 ```
 
-A partir de ce moment, vous devriez pouvoir lancer l'application sans erreurs et voir les keypoints détectés par le modèle TF.
+A partir de ce moment, vous devriez pouvoir lancer l'application sans erreurs et observer comment est construit l'objet **prédictions** renvoyé par le modèle.
 
 ## 2. Détecter une main fermée
 
