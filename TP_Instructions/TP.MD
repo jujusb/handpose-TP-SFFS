@@ -136,3 +136,6 @@ Compléter la méthode *detectClosedHand*
 ## Fin du TP
 Décommente les lignes concernant le lancement du fichier audio !
 Bravo, tu est un véritable chef d'orchestre !
+
+# Optionnel
+Pour les plus chevronnés et ceux arrivés jusqu'au bout de ce TP, vous pouvez améliorer la robustesse de la détection de la main fermée. En effet, cet algorithme ne fonctionne pas lorsque la main se tient à l'envers ou sur les côtés. Vous devrez alors détecter la position de la main (à l'endroit, à l'envers, sur un côté) à l'aide du keypoint situé sur la paume, avant de pouvoir détecter sa position ouverte ou fermée.
