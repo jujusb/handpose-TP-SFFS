@@ -3,6 +3,7 @@
 ## Installations nécessaires :
 
 - Un navigateur Chromium pour exécuter l'application (ne fonctionne pas avec Firefox, testé avec Chrome)
+- Une webcam fonctionnelle
 
 *Au choix :*
 - Docker

@@ -131,6 +131,8 @@ function drawPath(points, closePath) {
  */
 function detectClosedHand(predictions) {
 
+    // (Question 2.2)
+
     // Get fingers (print prediction object to see other fingers)
     // let indexFinger = predictions[0].annotations.indexFinger;
 
@@ -147,6 +149,9 @@ function detectClosedHand(predictions) {
  * @returns 1 if closed, 0 otherwise
  */
 function detectClosedFinger(finger) {
+
+    // (Question 2.1)
+
     // Get yTop & yBottom (Point index : (0, Bottom), (3, Top))
     // Structure of a point is the following : [x, y, z]
 
