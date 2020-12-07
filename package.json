@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/r-bbn/handpose_TP_SFFS#readme",
   "dependencies": {
+    "@tensorflow-models/handpose": "0.0.6",
+    "@tensorflow/tfjs-backend-webgl": "^2.7.0",
+    "@tensorflow/tfjs-converter": "^2.7.0",
+    "@tensorflow/tfjs-core": "^2.7.0",
     "http-server": "^0.12.3"
   }
 }

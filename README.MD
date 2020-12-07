@@ -21,27 +21,9 @@ npm install
 
 Then run the application
 ```bash
-cd ./app
 npx http-server
 ```
 
-The server is running on : http://localhost:8080
+The server is running on : http://localhost:8080/app
 
 Be aware of disabling cache in Chrome : Dev tools/Network/Disable Cache
-
-### Using docker
-
-#### Build image & launch app :
-```bash
-cd docker
-/bin/bash ./launch_app.sh
-```
-
-The server is running on : http://localhost:8080
-
-Be aware of disabling cache in Chrome : Dev tools/Network/Disable Cache
-
-#### Remove container and image
-```bash
-/bin/bash ./stop_app.sh
-```
